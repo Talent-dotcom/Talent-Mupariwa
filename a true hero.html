@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heroic Journey of Talent Mupariwa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .hero-header::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,138,0,0.3) 0%, rgba(229,46,113,0.3) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-image:hover::before {
+            opacity: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-left: 4px solid #e52e71;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .hero-quote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(229,46,113,0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .hero-achievements {
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(229,46,113,0.3);
+        }
+
+        .hero-achievements h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .achievement {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .achievement i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .achievement h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(229,46,113,0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229,46,113,0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-container">
+        <header class="hero-header">
+            <h1>The Heroic Journey of Talent Mupariwa</h1>
+            <p class="subtitle">Celebrating a Modern-Day Hero Who Inspires Us All</p>
+        </header>
+
+        <div class="hero-content">
+            <div class="hero-image">
+                <!-- Replace with your actual image path -->
+                <img src="2025_03_22_16_35_IMG_2105.jpg" alt="[Talent Mupariwa] - A True Hero">
+            </div>
+
+            <div class="hero-text">
+                <p>In a world that often feels chaotic and uncertain, true heroes shine like beacons of hope. Talent Mupariwa is one such hero - a person whose courage, compassion, and unwavering determination have touched countless lives and made the world a better place.</p>
+                
+                <p>From being called a looser by his primary classmates, Talent Mupariwa has risen to meet every challenge with extraordinary resilience. Whether it's his actions are weird sometimes, Talent Mupariwa demonstrates daily what it means to lead with both strength and heart.</p>
+
+                <div class="hero-quote">
+                    "The measure of a true hero is not in their strength, but in the depth of their compassion and their commitment to making a difference. Talent Mupariwa embodies this ideal in everything they do."
+                </div>
+
+                <p>What sets Talent Mupariwa apart isn't just being handsome, but the way he use these gifts to uplift others. Whether through helping them grow mentally, Talent Mupariwa consistently puts others first while accomplishing remarkable feats.</p>
+            </div>
+        </div>
+
+        <div class="hero-achievements">
+            <h2>Heroic Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement">
+                    <i class="fas fa-medal"></i>
+                    <h3>Exceptional Courage</h3>
+                    <p>Facing challenges that would deter others, Talent Mupariwa meets every obstacle with bravery and determination.</p>
+                </div>
+                
+                <div class="achievement">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Selfless Service</h3>
+                    <p>Countless lives transformed through his generous acts of kindness and support.</p>
+                </div>
+                
+                <div class="achievement">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovative Solutions</h3>
+                    <p>Creative problem-solving that has led to my greatness.</p>
+                </div>
+                
+                <div class="achievement">
+                    <i class="fas fa-heart"></i>
+                    <h3>Inspiring Leadership</h3>
+                    <p>Motivating others to be their best selves through his example and guidance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-text">
+            <p>The story of Talent Mupariwa reminds us all that heroism isn't about superpowers or fame - it's about showing up every day with integrity, facing challenges with grace, and making a positive difference in whatever way we can. In his case, these daily acts of courage and kindness have added up to an extraordinary impact.</p>
+            
+            <p>As we reflect on Talent Mupariwa's journey so far, we can't help but be excited for what the future holds. With his unique combination of strenth and love, there's no doubt that Talent Mupariwa will continue to achieve great things and inspire others to do the same.</p>
+        </div>
+
+        <div class="call-to-action">
+            <a href="#" class="cta-button">Join the Celebration</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for achievements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const achievements = document.querySelectorAll('.achievement');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            achievements.forEach(achievement => {
+                achievement.style.opacity = 0;
+                achievement.style.transform = 'translateY(20px)';
+                achievement.style.transition = 'all 0.6s ease';
+                observer.observe(achievement);
+            });
+        });
+    </script>
+</body>
+</html>
